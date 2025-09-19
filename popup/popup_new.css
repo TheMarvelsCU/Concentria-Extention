@@ -1,7 +1,7 @@
 /* Concentria Extension - Complete Color System Implementation */
 
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* CSS Custom Properties - Concentria Color System */
 :root {
@@ -41,90 +41,111 @@
   --neon-red: #f87171;
 
   /* BACKGROUND COLORS */
-  --bg-primary: #070B12;
-  --bg-secondary: #0B0F1A;
-  --bg-overlay: #0B0B0F;
-  --bg-card: #0F172A;
-  --bg-footer: #06090F;
+  --bg-primary: #070b12;
+  --bg-secondary: #0b0f1a;
+  --bg-overlay: #0b0b0f;
+  --bg-card: #0f172a;
+  --bg-footer: #06090f;
 
   /* Glass Morphism Colors */
-  --glass-primary: rgba(255,255,255,0.06);
-  --glass-hover: rgba(255,255,255,0.1);
-  --glass-subtle: rgba(255,255,255,0.05);
-  --glass-strong: rgba(255,255,255,0.12);
-  --glass-border: rgba(255,255,255,0.15);
-  --glass-active: rgba(255,255,255,0.2);
+  --glass-primary: rgba(255, 255, 255, 0.06);
+  --glass-hover: rgba(255, 255, 255, 0.1);
+  --glass-subtle: rgba(255, 255, 255, 0.05);
+  --glass-strong: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-active: rgba(255, 255, 255, 0.2);
 
   /* TEXT COLORS */
-  --text-primary: #E2E8F0;
-  --text-secondary: #94A3B8;
-  --text-tertiary: #64748B;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
   --text-muted: #475569;
   --text-subtle: #334155;
 
   /* Text Opacity Variants */
-  --text-white-87: rgba(255,255,255,0.87);
-  --text-white-80: rgba(255,255,255,0.8);
-  --text-white-70: rgba(255,255,255,0.7);
-  --text-white-60: rgba(255,255,255,0.6);
-  --text-white-40: rgba(255,255,255,0.4);
-  --text-white-20: rgba(255,255,255,0.2);
+  --text-white-87: rgba(255, 255, 255, 0.87);
+  --text-white-80: rgba(255, 255, 255, 0.8);
+  --text-white-70: rgba(255, 255, 255, 0.7);
+  --text-white-60: rgba(255, 255, 255, 0.6);
+  --text-white-40: rgba(255, 255, 255, 0.4);
+  --text-white-20: rgba(255, 255, 255, 0.2);
 
   /* GRADIENT COLORS */
   --gradient-quantum: linear-gradient(135deg, #06b6d4 0%, #2563eb 100%);
   --gradient-quantum-reverse: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
   --gradient-cyber: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-  --gradient-neon: linear-gradient(135deg, #22d3ee 0%, #a78bfa 50%, #f472b6 100%);
-  --gradient-holographic: linear-gradient(45deg, #ff006e, #8338ec, #3a86ff, #06ffa5, #ffbe0b, #fb5607);
+  --gradient-neon: linear-gradient(
+    135deg,
+    #22d3ee 0%,
+    #a78bfa 50%,
+    #f472b6 100%
+  );
+  --gradient-holographic: linear-gradient(
+    45deg,
+    #ff006e,
+    #8338ec,
+    #3a86ff,
+    #06ffa5,
+    #ffbe0b,
+    #fb5607
+  );
   --gradient-dark: linear-gradient(135deg, #111111 0%, #000000 100%);
-  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  --gradient-glass: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
 
   /* BORDER COLORS */
-  --border-primary: rgba(255,255,255,0.1);
-  --border-secondary: rgba(255,255,255,0.12);
-  --border-hover: rgba(255,255,255,0.15);
-  --border-active: rgba(255,255,255,0.2);
-  --border-strong: rgba(255,255,255,0.3);
+  --border-primary: rgba(255, 255, 255, 0.1);
+  --border-secondary: rgba(255, 255, 255, 0.12);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --border-active: rgba(255, 255, 255, 0.2);
+  --border-strong: rgba(255, 255, 255, 0.3);
 
   /* Accent Borders */
-  --border-cyan: rgba(34,211,238,0.3);
-  --border-purple: rgba(139,92,246,0.3);
-  --border-pink: rgba(236,72,153,0.3);
-  --border-blue: rgba(59,130,246,0.3);
+  --border-cyan: rgba(34, 211, 238, 0.3);
+  --border-purple: rgba(139, 92, 246, 0.3);
+  --border-pink: rgba(236, 72, 153, 0.3);
+  --border-blue: rgba(59, 130, 246, 0.3);
 
   /* STATUS COLORS */
   --success-primary: #22c55e;
-  --success-secondary: #10B981;
-  --success-bg: rgba(34,197,94,0.18);
-  --success-text: #86EFAC;
+  --success-secondary: #10b981;
+  --success-bg: rgba(34, 197, 94, 0.18);
+  --success-text: #86efac;
 
   --warning-primary: #facc15;
   --warning-secondary: #f59e0b;
-  --warning-bg: rgba(234,179,8,0.18);
-  --warning-text: #FDE68A;
+  --warning-bg: rgba(234, 179, 8, 0.18);
+  --warning-text: #fde68a;
 
   --error-primary: #f87171;
   --error-secondary: #ef4444;
-  --error-bg: rgba(239,68,68,0.18);
-  --error-text: #FCA5A5;
+  --error-bg: rgba(239, 68, 68, 0.18);
+  --error-text: #fca5a5;
 
   --info-primary: #3b82f6;
   --info-secondary: #22d3ee;
-  --info-bg: rgba(59,130,246,0.18);
-  --info-text: #93C5FD;
+  --info-bg: rgba(59, 130, 246, 0.18);
+  --info-text: #93c5fd;
 
   /* SHADOW COLORS */
-  --glow-cyan: 0 0 20px rgba(34,211,238,0.3);
-  --glow-blue: 0 0 20px rgba(59,130,246,0.3);
-  --glow-purple: 0 0 20px rgba(139,92,246,0.3);
-  --glow-pink: 0 0 20px rgba(236,72,153,0.3);
+  --glow-cyan: 0 0 20px rgba(34, 211, 238, 0.3);
+  --glow-blue: 0 0 20px rgba(59, 130, 246, 0.3);
+  --glow-purple: 0 0 20px rgba(139, 92, 246, 0.3);
+  --glow-pink: 0 0 20px rgba(236, 72, 153, 0.3);
 
-  --shadow-cyber: 0 0 30px rgba(34,211,238,0.2), 0 0 60px rgba(139,92,246,0.1);
-  --shadow-quantum: 0 20px 40px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05);
-  --shadow-glass: 0 8px 32px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.1);
+  --shadow-cyber: 0 0 30px rgba(34, 211, 238, 0.2),
+    0 0 60px rgba(139, 92, 246, 0.1);
+  --shadow-quantum: 0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
 
   /* Font Settings */
-  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
 }
 
 /* Reset & Base Styles */
@@ -170,7 +191,7 @@ body {
 }
 
 .header::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -209,7 +230,7 @@ body {
 }
 
 .logo-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -301,7 +322,7 @@ body {
 }
 
 .auth-container::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -337,7 +358,7 @@ body {
 }
 
 .auth-icon::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -852,7 +873,7 @@ body {
 }
 
 .stat-card::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -1054,7 +1075,7 @@ body {
   border-radius: 6px;
   font-size: 11px;
   font-weight: 600;
-  font-family: 'Monaco', 'Menlo', monospace;
+  font-family: "Monaco", "Menlo", monospace;
 }
 
 .footer-links {
@@ -1089,7 +1110,8 @@ body {
 
 /* Animations */
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -1098,7 +1120,8 @@ body {
 }
 
 @keyframes statusPulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 5px var(--success-primary);
   }
   50% {
@@ -1107,7 +1130,8 @@ body {
 }
 
 @keyframes holographic {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
     filter: hue-rotate(0deg);
   }
@@ -1118,8 +1142,12 @@ body {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes scanning {
@@ -1157,23 +1185,23 @@ body {
     width: 100%;
     min-width: 350px;
   }
-  
+
   .concentria-container {
     border-radius: 0;
     box-shadow: none;
     min-height: 100vh;
   }
-  
+
   .stats-container {
     grid-template-columns: 1fr;
   }
-  
+
   .panel-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
-  
+
   .panel-actions {
     align-self: stretch;
     justify-content: flex-end;

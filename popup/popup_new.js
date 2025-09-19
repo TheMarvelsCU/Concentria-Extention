@@ -62,8 +62,8 @@ function setupActionButtons() {
 }
 
 function initializeTabSystem() {
-  // Just set up the initial state, don't switch tabs yet
-  // Tab switching will happen after authentication
+  // Set default active tab
+  switchTab("logs");
 }
 
 function handleEnterKey(event) {
@@ -105,34 +105,28 @@ function switchTab(tabId) {
       return;
     }
 
-    forceTabSwitch(tabId);
+    // Update tab button states
+    const tabButtons = document.querySelectorAll(".tab-button");
+    tabButtons.forEach((button) => {
+      const buttonTabId = button.getAttribute("data-tab");
+      button.classList.toggle("active", buttonTabId === tabId);
+    });
+
+    // Update panel visibility
+    const tabPanels = document.querySelectorAll(".tab-panel");
+    tabPanels.forEach((panel) => {
+      const panelTabId = panel.getAttribute("data-tab");
+      panel.classList.toggle("active", panelTabId === tabId);
+    });
+
+    // Load data based on selected tab
+    if (tabId === "cookies") {
+      loadCookies();
+      updateCurrentDomain();
+    } else if (tabId === "logs") {
+      fetchUserLogs();
+    }
   });
-}
-
-function forceTabSwitch(tabId) {
-  console.log("Force switching to tab:", tabId);
-
-  // Update tab button states
-  const tabButtons = document.querySelectorAll(".tab-button");
-  tabButtons.forEach((button) => {
-    const buttonTabId = button.getAttribute("data-tab");
-    button.classList.toggle("active", buttonTabId === tabId);
-  });
-
-  // Update panel visibility
-  const tabPanels = document.querySelectorAll(".tab-panel");
-  tabPanels.forEach((panel) => {
-    const panelTabId = panel.getAttribute("data-tab");
-    panel.classList.toggle("active", panelTabId === tabId);
-  });
-
-  // Load data based on selected tab
-  if (tabId === "cookies") {
-    loadCookies();
-    updateCurrentDomain();
-  } else if (tabId === "logs") {
-    fetchUserLogs();
-  }
 }
 
 // Authentication Functions
@@ -216,22 +210,17 @@ async function login(email, password) {
 }
 
 async function logout() {
-  try {
-    console.log("Logging out...");
+  console.log("Logging out...");
 
-    // Clear all stored data
-    await chrome.storage.local.clear();
+  // Clear all stored data
+  await chrome.storage.local.clear();
 
-    // Reset UI
-    updateAuthUI();
-    clearLogs();
-    updateStats();
+  // Reset UI
+  updateAuthUI();
+  clearLogs();
+  updateStats();
 
-    showSuccess("Successfully logged out!");
-  } catch (error) {
-    console.error("Logout error:", error);
-    showError("Error during logout: " + error.message);
-  }
+  showSuccess("Successfully logged out!");
 }
 
 function updateAuthUI() {
@@ -240,33 +229,13 @@ function updateAuthUI() {
 
     const authSection = document.querySelector(".auth-section");
     const dashboardSection = document.querySelector(".dashboard-section");
-    const userEmailDisplay = document.getElementById("userEmail"); // Fixed ID
+    const userEmailDisplay = document.getElementById("userEmailDisplay");
     const statusIndicator = document.querySelector(".status-indicator");
 
-    console.log("DOM elements found:", {
-      authSection: !!authSection,
-      dashboardSection: !!dashboardSection,
-      userEmailDisplay: !!userEmailDisplay,
-      statusIndicator: !!statusIndicator,
-    });
-
     if (result.isLoggedIn && result.userEmail) {
-      console.log("Showing authenticated state...");
       // Show authenticated state
-      if (authSection) {
-        authSection.style.display = "none";
-        authSection.classList.add("hidden");
-      }
-      if (dashboardSection) {
-        dashboardSection.style.display = "flex";
-        dashboardSection.classList.remove("hidden");
-        console.log("Dashboard section should now be visible");
-        console.log("Dashboard classes:", dashboardSection.className);
-        console.log(
-          "Dashboard computed display:",
-          window.getComputedStyle(dashboardSection).display
-        );
-      }
+      if (authSection) authSection.style.display = "none";
+      if (dashboardSection) dashboardSection.style.display = "flex";
       if (userEmailDisplay) userEmailDisplay.textContent = result.userEmail;
 
       // Update status indicator
@@ -286,21 +255,12 @@ function updateAuthUI() {
       fetchUserLogs();
       updateStats();
 
-      // Set default tab (force it since we know user is logged in)
-      setTimeout(() => {
-        forceTabSwitch("logs");
-      }, 100);
+      // Set default tab
+      switchTab("logs");
     } else {
-      console.log("Showing login state...");
       // Show login state
-      if (authSection) {
-        authSection.style.display = "flex";
-        authSection.classList.remove("hidden");
-      }
-      if (dashboardSection) {
-        dashboardSection.style.display = "none";
-        dashboardSection.classList.add("hidden");
-      }
+      if (authSection) authSection.style.display = "flex";
+      if (dashboardSection) dashboardSection.style.display = "none";
 
       // Update status indicator
       const statusText = statusIndicator?.querySelector(".status-text");
